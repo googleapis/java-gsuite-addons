@@ -16,4 +16,4 @@
 
 package com.google.cloud.gsuiteaddons.v1;
 
-
+import com.google.apps.script.type.AddOnWidgetSet;
