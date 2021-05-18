@@ -18,8 +18,8 @@
 
 package com.google.apps.script.type;
 
-public final class AddonWidgetSet {
-  private AddonWidgetSet() {}
+public final class AddonWidgetSetExtension {
+  private AddonWidgetSetExtension() {}
 
   public static void registerAllExtensions(com.google.protobuf.ExtensionRegistryLite registry) {}
 
