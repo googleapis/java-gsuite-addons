@@ -14,4 +14,6 @@
  * limitations under the License.
  */
 
-package com.google.apps.script.type.docs;
+package com.google.cloud.gsuiteaddons.v1;
+
+
