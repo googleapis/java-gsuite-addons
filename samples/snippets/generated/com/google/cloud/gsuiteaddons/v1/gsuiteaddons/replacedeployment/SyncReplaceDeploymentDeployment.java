@@ -16,30 +16,26 @@
 
 package com.google.cloud.gsuiteaddons.v1.samples;
 
-// [START gsuiteaddons_v1_generated_GSuiteAddOnsSettings_GetAuthorization_sync]
-import com.google.cloud.gsuiteaddons.v1.GSuiteAddOnsSettings;
-import java.time.Duration;
+// [START gsuiteaddons_v1_generated_GSuiteAddOns_ReplaceDeployment_Deployment_sync]
+import com.google.cloud.gsuiteaddons.v1.Deployment;
+import com.google.cloud.gsuiteaddons.v1.GSuiteAddOnsClient;
 
-public class SyncGetAuthorization {
+public class SyncReplaceDeploymentDeployment {
 
   public static void main(String[] args) throws Exception {
-    syncGetAuthorization();
+    syncReplaceDeploymentDeployment();
   }
 
-  public static void syncGetAuthorization() throws Exception {
+  public static void syncReplaceDeploymentDeployment() throws Exception {
     // This snippet has been automatically generated and should be regarded as a code template only.
     // It will require modifications to work:
     // - It may require correct/in-range values for request initialization.
     // - It may require specifying regional endpoints when creating the service client as shown in
     // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-    GSuiteAddOnsSettings.Builder gSuiteAddOnsSettingsBuilder = GSuiteAddOnsSettings.newBuilder();
-    gSuiteAddOnsSettingsBuilder
-        .getAuthorizationSettings()
-        .setRetrySettings(
-            gSuiteAddOnsSettingsBuilder.getAuthorizationSettings().getRetrySettings().toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(30))
-                .build());
-    GSuiteAddOnsSettings gSuiteAddOnsSettings = gSuiteAddOnsSettingsBuilder.build();
+    try (GSuiteAddOnsClient gSuiteAddOnsClient = GSuiteAddOnsClient.create()) {
+      Deployment deployment = Deployment.newBuilder().build();
+      Deployment response = gSuiteAddOnsClient.replaceDeployment(deployment);
+    }
   }
 }
-// [END gsuiteaddons_v1_generated_GSuiteAddOnsSettings_GetAuthorization_sync]
+// [END gsuiteaddons_v1_generated_GSuiteAddOns_ReplaceDeployment_Deployment_sync]

@@ -16,30 +16,29 @@
 
 package com.google.cloud.gsuiteaddons.v1.samples;
 
-// [START gsuiteaddons_v1_generated_GSuiteAddOnsSettings_GetAuthorization_sync]
-import com.google.cloud.gsuiteaddons.v1.GSuiteAddOnsSettings;
-import java.time.Duration;
+// [START gsuiteaddons_v1_generated_GSuiteAddOns_CreateDeployment_ProjectnameDeploymentString_sync]
+import com.google.cloud.gsuiteaddons.v1.Deployment;
+import com.google.cloud.gsuiteaddons.v1.GSuiteAddOnsClient;
+import com.google.cloud.gsuiteaddons.v1.ProjectName;
 
-public class SyncGetAuthorization {
+public class SyncCreateDeploymentProjectnameDeploymentString {
 
   public static void main(String[] args) throws Exception {
-    syncGetAuthorization();
+    syncCreateDeploymentProjectnameDeploymentString();
   }
 
-  public static void syncGetAuthorization() throws Exception {
+  public static void syncCreateDeploymentProjectnameDeploymentString() throws Exception {
     // This snippet has been automatically generated and should be regarded as a code template only.
     // It will require modifications to work:
     // - It may require correct/in-range values for request initialization.
     // - It may require specifying regional endpoints when creating the service client as shown in
     // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-    GSuiteAddOnsSettings.Builder gSuiteAddOnsSettingsBuilder = GSuiteAddOnsSettings.newBuilder();
-    gSuiteAddOnsSettingsBuilder
-        .getAuthorizationSettings()
-        .setRetrySettings(
-            gSuiteAddOnsSettingsBuilder.getAuthorizationSettings().getRetrySettings().toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(30))
-                .build());
-    GSuiteAddOnsSettings gSuiteAddOnsSettings = gSuiteAddOnsSettingsBuilder.build();
+    try (GSuiteAddOnsClient gSuiteAddOnsClient = GSuiteAddOnsClient.create()) {
+      ProjectName parent = ProjectName.of("[PROJECT]");
+      Deployment deployment = Deployment.newBuilder().build();
+      String deploymentId = "deploymentId-136894784";
+      Deployment response = gSuiteAddOnsClient.createDeployment(parent, deployment, deploymentId);
+    }
   }
 }
-// [END gsuiteaddons_v1_generated_GSuiteAddOnsSettings_GetAuthorization_sync]
+// [END gsuiteaddons_v1_generated_GSuiteAddOns_CreateDeployment_ProjectnameDeploymentString_sync]

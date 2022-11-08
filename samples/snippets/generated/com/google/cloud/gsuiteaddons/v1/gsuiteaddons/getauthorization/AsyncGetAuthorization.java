@@ -16,30 +16,35 @@
 
 package com.google.cloud.gsuiteaddons.v1.samples;
 
-// [START gsuiteaddons_v1_generated_GSuiteAddOnsSettings_GetAuthorization_sync]
-import com.google.cloud.gsuiteaddons.v1.GSuiteAddOnsSettings;
-import java.time.Duration;
+// [START gsuiteaddons_v1_generated_GSuiteAddOns_GetAuthorization_async]
+import com.google.api.core.ApiFuture;
+import com.google.cloud.gsuiteaddons.v1.Authorization;
+import com.google.cloud.gsuiteaddons.v1.AuthorizationName;
+import com.google.cloud.gsuiteaddons.v1.GSuiteAddOnsClient;
+import com.google.cloud.gsuiteaddons.v1.GetAuthorizationRequest;
 
-public class SyncGetAuthorization {
+public class AsyncGetAuthorization {
 
   public static void main(String[] args) throws Exception {
-    syncGetAuthorization();
+    asyncGetAuthorization();
   }
 
-  public static void syncGetAuthorization() throws Exception {
+  public static void asyncGetAuthorization() throws Exception {
     // This snippet has been automatically generated and should be regarded as a code template only.
     // It will require modifications to work:
     // - It may require correct/in-range values for request initialization.
     // - It may require specifying regional endpoints when creating the service client as shown in
     // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-    GSuiteAddOnsSettings.Builder gSuiteAddOnsSettingsBuilder = GSuiteAddOnsSettings.newBuilder();
-    gSuiteAddOnsSettingsBuilder
-        .getAuthorizationSettings()
-        .setRetrySettings(
-            gSuiteAddOnsSettingsBuilder.getAuthorizationSettings().getRetrySettings().toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(30))
-                .build());
-    GSuiteAddOnsSettings gSuiteAddOnsSettings = gSuiteAddOnsSettingsBuilder.build();
+    try (GSuiteAddOnsClient gSuiteAddOnsClient = GSuiteAddOnsClient.create()) {
+      GetAuthorizationRequest request =
+          GetAuthorizationRequest.newBuilder()
+              .setName(AuthorizationName.of("[PROJECT]").toString())
+              .build();
+      ApiFuture<Authorization> future =
+          gSuiteAddOnsClient.getAuthorizationCallable().futureCall(request);
+      // Do something.
+      Authorization response = future.get();
+    }
   }
 }
-// [END gsuiteaddons_v1_generated_GSuiteAddOnsSettings_GetAuthorization_sync]
+// [END gsuiteaddons_v1_generated_GSuiteAddOns_GetAuthorization_async]
